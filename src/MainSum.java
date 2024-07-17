@@ -7,7 +7,6 @@ public class MainSum {
         try(FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 
-
                 String line = bufferedReader.readLine();
                 String[] list = line.split(" ");
                 int number = Integer.parseInt(list[0]);
