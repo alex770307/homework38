@@ -14,12 +14,8 @@ public class MainSum {
                 int sum = calculateSum(number);
                 System.out.println("Сумма всех чисел от 1 до " + number + " равна " + sum);
 
-        } catch (UncheckedException e) {
+        } catch (UncheckedException | IOException e) {
             System.out.println("Ошибка: " + e.getMessage());
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
     public static int calculateSum(int number) {
