@@ -19,13 +19,12 @@ public class MainNumberComparator {
             System.out.println(list);
 
             int firstNumber = Integer.parseInt(list.get(0));
-            int secondNumber = Integer.parseInt(list.get(2));
+            int secondNumber = Integer.parseInt(list.get(1));
 
             compareNumbers(firstNumber, secondNumber);
         } catch (CheckedException | IOException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
-
     }
 
     public static void compareNumbers(int firstNumber, int secondNumber) throws CheckedException {
