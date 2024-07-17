@@ -7,14 +7,13 @@ public class MainSum {
         try(FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 
-
                 String line = bufferedReader.readLine();
                 String[] list = line.split(" ");
                 int number = Integer.parseInt(list[0]);
                 int sum = calculateSum(number);
                 System.out.println("Сумма всех чисел от 1 до " + number + " равна " + sum);
 
-        } catch (UncheckedException | IOException e) {
+        } catch (IOException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
     }
