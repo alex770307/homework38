@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class MainSum {
     public static void main(String[] args) {
@@ -7,9 +9,11 @@ public class MainSum {
         try(FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 
-                String line = bufferedReader.readLine();
-                String[] list = line.split(" ");
-                int number = Integer.parseInt(list[0]);
+            List<String> list = bufferedReader.lines()
+                    .flatMap(line -> Stream.of(line.split(" ")))
+                    .toList();
+
+                int number = Integer.parseInt(list.get(0));
                 int sum = calculateSum(number);
                 System.out.println("Сумма всех чисел от 1 до " + number + " равна " + sum);
 
@@ -23,7 +27,7 @@ public class MainSum {
             sum += i;
         }
         if (sum > 10_000) {
-            throw new UncheckedException("Сумма превышает 10,000: " + sum);
+            throw new UncheckedException("Сумма превышает 10_000: " + sum);
         }
         return sum;
     }

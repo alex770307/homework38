@@ -16,7 +16,6 @@ public class MainNumberComparator {
             List<String> list = bufferedReader.lines()
                     .flatMap(line -> Stream.of(line.split(" ")))
                     .toList();
-            System.out.println(list);
 
             int firstNumber = Integer.parseInt(list.get(0));
             int secondNumber = Integer.parseInt(list.get(1));
