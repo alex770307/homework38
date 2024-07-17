@@ -1,11 +1,25 @@
+import java.io.*;
+
 public class MainSum {
     public static void main(String[] args) {
-        try {
-            int number = 150;
-            int sum = calculateSum(number);
-            System.out.println("Сумма всех чисел от 1 до " + number + " равна " + sum);
+
+        File file = new File("Text.txt");
+        try(FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+
+
+                String line = bufferedReader.readLine();
+                String[] list = line.split(" ");
+                int number = Integer.parseInt(list[0]);
+                int sum = calculateSum(number);
+                System.out.println("Сумма всех чисел от 1 до " + number + " равна " + sum);
+
         } catch (UncheckedException e) {
             System.out.println("Ошибка: " + e.getMessage());
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
     public static int calculateSum(int number) {
