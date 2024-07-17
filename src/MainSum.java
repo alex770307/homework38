@@ -13,7 +13,7 @@ public class MainSum {
                 int sum = calculateSum(number);
                 System.out.println("Сумма всех чисел от 1 до " + number + " равна " + sum);
 
-        } catch (UncheckedException | IOException e) {
+        } catch (IOException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
     }

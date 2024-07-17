@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
 
 public class MainNumberComparator {
 
@@ -12,20 +11,16 @@ public class MainNumberComparator {
         try(FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 
-            List<String> list =  bufferedReader.lines()
-                    .toList();
-            System.out.println(list);
-
-            int firstNumber = Integer.parseInt(list.get(0));
-            int secondNumber = Integer.parseInt(list.get(1));
+            String line = bufferedReader.readLine();
+            String[] list = line.split(" ");
+            int firstNumber = Integer.parseInt(list[0]);
+            int secondNumber = Integer.parseInt(list[1]);
 
             compareNumbers(firstNumber, secondNumber);
         } catch (CheckedException | IOException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
-
     }
-
 
     public static void compareNumbers(int firstNumber, int secondNumber) throws CheckedException {
         if (firstNumber < secondNumber) {
