@@ -21,8 +21,10 @@ public class MainNumberComparator {
             int secondNumber = Integer.parseInt(list.get(1));
 
             compareNumbers(firstNumber, secondNumber);
-        } catch (CheckedException | IOException e) {
+        } catch (CheckedException e) {
             System.out.println("Ошибка: " + e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
